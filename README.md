@@ -24,4 +24,4 @@ In oder to fully reproduce the i3 flair, you need to install the following packa
 
 ### Additional programs
 
-`pacman -S numlockx polkit scrot alsa terminator mpd xautolock i3lock light ntfs-3g udisks2
+`pacman -S numlockx polkit scrot alsa terminator mpd xss-lock i3lock-color light ntfs-3g udisks2
