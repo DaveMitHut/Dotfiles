@@ -23,6 +23,10 @@ bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 
+# Backlight control with light
+bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 10"
+bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+
 bindsym $mod+Return exec terminator
 
 bindsym $mod+Shift+q kill
