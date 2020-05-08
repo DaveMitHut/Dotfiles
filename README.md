@@ -6,6 +6,10 @@ Contains all dotfiles neccesary to restore custom i3-gaps flair, keybindings and
 
 In oder to fully reproduce the i3 flair, you need to install the following packages after installing i3-gaps:
 
+### Terminator
+
+`pacman -S terminator`
+
 ### alsa
 
 `pacman -S alsa-utils`
