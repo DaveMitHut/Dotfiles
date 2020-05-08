@@ -1,9 +1,8 @@
 set $mod Mod4
 font pango:monospace 8
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Start xss-lock with i3lock on startup
+exec --no-startup-id xss-lock -- i3lock -n -i ~/Bilder/Wallpaper/lockscreen.jpg
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -16,7 +15,7 @@ exec --no-startup-id mpd
 floating_modifier Mod1
 floating_minimum_size 75 x 50
 floating_maximum_size -1 x -1
-bindsym $mod+Control+l exec --no-startup-id i3lock -t -i $(< $HOME/.cache/wal/wal) -n
+bindsym $mod+Control+l exec --no-startup-id "xset s activate"
 
 # Audio control with alsa
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
@@ -41,9 +40,6 @@ bindsym $mod+Shift+Print exec scrot -s $HOME/Bilder/Screenshots/`date +%Y-%m-%d_
 bindsym $mod+d exec dmenu_run
 #bindsym $mod+d exec --no-startup-id rofi -show drun 
 #bindsym $mod+Shift+d exec --no-startup-id rofi -show window 
-
-#bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-#bindsym $mod+Shift+u [instance="calc"] scratchpad show; [instance="calc"] move position center
 
 #MPD
 bindsym XF86AudioPlay exec mpc toggle
@@ -185,17 +181,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-#Scratchpad
-#for_window [instance="dropdown"] floating enable
-#for_window [instance="dropdown"] resize set 625 400
-#for_window [instance="dropdown"] move scratchpad
-#for_window [instance="calc"] floating enable
-#for_window [instance="calc"] resize set 625 400
-#for_window [instance="calc"] move scratchpad
-#for_window [class="Mathpix Snipping Tool" instance="mathpix-snipping-tool"] floating enable
-#for_window [class="Mathpix Snipping Tool" instance="mathpix-snipping-tool"] resize set 625 400
-#for_window [class="Mathpix Snipping Tool" instance="mathpix-snipping-tool"] position center
-#for_window [window_role="pop-up"] floating enable
-#for_window [window_role="task_dialog"] floating enable
-
