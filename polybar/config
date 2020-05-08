@@ -32,7 +32,7 @@ label-visible-background = #00000000
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 2
 
-ws-icon-default = 
+ws-icon-default = 
 
 [module/wifi]
 type = internal/network
@@ -44,11 +44,11 @@ format-connected = <label-connected>
 label-connected = " %essid%"
 label-disconnected = " %ifname% off "
 
-ramp-signal-0 =" "
-ramp-signal-1 =" "
-ramp-signal-2 =" "
-ramp-signal-3 =" "
-ramp-signal-4 =" "
+ramp-signal-0 ="  
+ramp-signal-1 ="  
+ramp-signal-2 ="  
+ramp-signal-3 ="  
+ramp-signal-4 ="  
 
 [module/eth]
 type = internal/network
@@ -84,7 +84,7 @@ ramp-volume-2 =" "
 ramp-volume-3 =" "
 label-volume-foreground = ${colors.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
 label-muted = muted
 label-muted-foreground = ${colors.foreground}
@@ -92,27 +92,20 @@ label-muted-foreground = ${colors.foreground}
 [module/battery]
 type = internal/battery
 full-at = 100
-battery = BAT1
+battery = BAT0
 adapter = ADP1
 format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full>
 time-format = %H:%M
 label-discharging = %time% %percentage%%
-label-charging =  %percentage%%
-label-full = 🔌 %percentage%%
+label-charging =   %percentage%%
+label-full =  %percentage%%
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-
-[module/ip]
-type = custom/script
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-exec = echo "$(hostname -i | awk '{print $1}')"
 
 [module/memory]
 type = internal/memory
