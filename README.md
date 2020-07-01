@@ -26,4 +26,4 @@ In oder to fully reproduce the i3 flair, you need to install the following packa
 
 The programs named here are all used in the i3 configuration.
 
-`pacman -S numlockx polkit scrot alsa alacritty mpd xss-lock i3lock-color ntfs-3g udisks2 alsa-utils feh ranger unzip`
+`pacman -S numlockx polkit scrot alsa alacritty mpd xss-lock i3lock-color ntfs-3g udisks2 alsa-utils feh ranger unzip neofetch`
