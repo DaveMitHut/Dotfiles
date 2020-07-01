@@ -76,7 +76,7 @@ label = " %date% %time%"
 [module/volume]
 type = internal/alsa
 
-format-volume = %{B#771187} <ramp-volume><label-volume> %{B-}
+format-volume = <ramp-volume><label-volume> %{B-}
 label-volume = "%percentage%%"
 ramp-volume-0 =" "
 ramp-volume-1 =" "
@@ -84,9 +84,8 @@ ramp-volume-2 =" "
 ramp-volume-3 =" "
 label-volume-foreground = ${colors.foreground}
 
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = muted
+label-muted = " "
 label-muted-foreground = ${colors.foreground}
 
 [module/battery]
@@ -98,7 +97,7 @@ format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <label-full>
 time-format = %H:%M
-label-discharging = %time% %percentage%%
+label-discharging = %percentage%%
 label-charging =   %percentage%%
 label-full =  %percentage%%
 ramp-capacity-0 = 
@@ -121,7 +120,7 @@ label = %percentage:2%%
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 2
+thermal-zone = 1
 warn-temperature = 60
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -148,7 +147,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = %{B#490866}  %{B-}
+label-open =  %{B-}
 label-open-foreground = #ffffff;#d50000
 label-close =  cancel
 label-close-foreground = #d42222
@@ -165,13 +164,9 @@ port = 6600
 
 format-online = <label-song> <label-time> <icon-prev>  <icon-pause>  <icon-play>  <icon-next> 
 
-;icon-prev = 
 icon-prev = 
-;icon-play = 
 icon-play = 
-;icon-pause = 
 icon-pause = 
-;icon-next = 
 icon-next = 
 
 toggle-on-foreground = ${colors.primary}
