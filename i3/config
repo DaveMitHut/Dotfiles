@@ -4,6 +4,12 @@ font pango:monospace 8
 # Start xss-lock with i3lock on startup
 exec --no-startup-id xss-lock -- i3lock -n -i ~/Bilder/Wallpaper/lockscreen.jpg
 
+# Set background image
+exec --no-startup-id feh --bg-scale /home/david/Bilder/Wallpaper/gits_2.jpg
+
+# Start picom composition manager
+exec --no-startup-id picom
+
 # NetworkManager
 exec --no-startup-id nm-applet
 
@@ -11,7 +17,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id numlockx on
 exec --no-startup-id mpd
 
-#KEYBINDINGS
+### KEYBINDINGS ###
 floating_modifier Mod1
 floating_minimum_size 75 x 50
 floating_maximum_size -1 x -1
@@ -23,23 +29,30 @@ bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
 
 # Backlight control with light
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 10"
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
-bindsym $mod+Return exec terminator
+# Frequently used easy keybindings for terminal and filebrowser
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty -e ranger
 
+# i3 restarting/reloading etc.
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Screenshot keybindings
 bindsym Print exec scrot $HOME/Bilder/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym $mod+Print exec scrot -u $HOME/Bilder/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym $mod+Shift+Print exec scrot -s $HOME/Bilder/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
-bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec --no-startup-id rofi -show drun 
-#bindsym $mod+Shift+d exec --no-startup-id rofi -show window 
+# Show rofi application starter
+bindsym $mod+d exec --no-startup-id rofi -show drun 
+
+# Change keyboard layout
+bindsym $mod+Shift+u exec setxkbmap us
+bindsym $mod+Shift+d exec setxkbmap de
 
 #MPD
 bindsym XF86AudioPlay exec mpc toggle
@@ -67,11 +80,14 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Split window
 bindsym $mod+h split h
 bindsym $mod+v split v
 
+# Toggle fullscreen
 bindsym $mod+f fullscreen toggle
 
+# Change layout mode
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -80,7 +96,7 @@ bindsym Mod1+Shift+space floating toggle
 bindsym Mod1+space focus mode_toggle
 bindsym $mod+a focus parent
 
-#WORKSPACE
+### WORKSPACE ###
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -133,16 +149,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#BAR
+### BAR ###
 exec_always --no-startup-id $HOME/.config/scripts/polybar.sh
 #bar {
 #        status_command i3status --config ~/.config/i3/i3status.conf
 #}
 
-#GAPS
+### GAPS ###
 for_window [class="^.*"] border pixel 0
-gaps inner 4
-gaps outer 4
+gaps inner 6
+gaps outer 6
 smart_gaps on
 
 set $mode_gaps Gaps: (o) outer, (i) inner
